@@ -78,14 +78,31 @@ const App = () => {
   const addData = (e) => {
     e.preventDefault()
     const id = uuidv4()
-    ref.doc(id).set({ id, text, num: todolist.length, completed: false }).catch(err => console.log(err))
-    setText('')
+    const category = text.slice(text.lastIndexOf('/'))
+    const isSynCorrect = [...text].some(item => item === '/')
+    if (!isSynCorrect) {
+      alert('Please specify category. (eg. Learn Code/Programming)')
+    } else {
+      ref.doc(id).set({ id, text, num: todolist.length, completed: false, category: category.slice(1) }).catch(err => console.log(err))
+      setText('')
+    }
+
   }
 
   const editData = (item) => {
     ref
       .doc(item.id)
       .update({ ...item, completed: true })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
+  const deleteData = (item) => {
+
+    ref
+      .doc(item.id)
+      .delete()
       .catch((err) => {
         console.error(err);
       });
@@ -117,7 +134,7 @@ const App = () => {
       <Filter isActive={isActive} setActiveHandler={setActiveHandler} />
       <Container>
         <TodoForm text={text} setText={setText} addData={addData} />
-        <Todolist editData={editData} todolist={todolist} />
+        <Todolist deleteData={deleteData} editData={editData} todolist={todolist} />
       </Container>
     </div>
   )

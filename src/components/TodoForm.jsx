@@ -7,7 +7,7 @@ const TodoForm = ({ text, setText, addData }) => {
         <Form.Control
           value={text}
           onChange={(e) => setText(e.target.value)}
-          placeholder='Add todo'
+          placeholder='Ex. Learn Code/Programming'
         ></Form.Control>
       </Form.Group>
     </Form>
