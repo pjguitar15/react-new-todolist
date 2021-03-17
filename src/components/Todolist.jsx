@@ -23,7 +23,7 @@ const Todolist = ({ todolist, editData }) => {
             style={{ fontSize: '12px', letterSpacing: '1px' }}
           >
             <div>PROGRAMMING</div>
-            <div>IN PROGRESS</div>
+            {!item.completed && <div>IN PROGRESS</div>}
           </div>
           <h6>{item.text}</h6>
 
