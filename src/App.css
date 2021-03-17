@@ -13,3 +13,6 @@ body {
 .card-container {
   transition-duration: 0.3s;
 }
+.todolist-main {
+  transition-duration: 0.3s;
+}

@@ -14,6 +14,7 @@ const App = () => {
   const [todolist, setTodolist] = useState([])
   const [completedCount, setCompletedCount] = useState(0)
   const [progressCount, setProgressCount] = useState(0)
+
   const [isActive, setIsActive] = useState({
     all: true,
     completed: false,
@@ -78,15 +79,8 @@ const App = () => {
   const addData = (e) => {
     e.preventDefault()
     const id = uuidv4()
-    const category = text.slice(text.lastIndexOf('/'))
-    const isSynCorrect = [...text].some(item => item === '/')
-    if (!isSynCorrect) {
-      alert('Please specify category. (eg. Learn Code/Programming)')
-    } else {
-      ref.doc(id).set({ id, text, num: todolist.length, completed: false, category: category.slice(1) }).catch(err => console.log(err))
-      setText('')
-    }
-
+    ref.doc(id).set({ id, text, num: todolist.length, completed: false }).catch(err => console.log(err))
+    setText('')
   }
 
   const editData = (item) => {
