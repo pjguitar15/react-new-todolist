@@ -20,7 +20,7 @@ const App = () => {
     completed: false,
     progress: false,
   })
-  const ref = firebase.firestore().collection('todos')
+  const ref = firebase.firestore().collection('todos2')
 
 
   const setActiveHandler = (e) => {
