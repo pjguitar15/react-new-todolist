@@ -12,6 +12,7 @@ import { v4 as uuidv4 } from 'uuid'
 const App = () => {
   const [text, setText] = useState('')
   const [todolist, setTodolist] = useState([])
+  const [totalCount, setTotalCount] = useState()
   const [completedCount, setCompletedCount] = useState(0)
   const [progressCount, setProgressCount] = useState(0)
 
@@ -72,6 +73,7 @@ const App = () => {
         items.push(doc.data());
       });
       setTodolist(items);
+      setTotalCount(items.length)
     });
   }
 
@@ -129,7 +131,7 @@ const App = () => {
   return (
     <div>
       <Header />
-      <StatusDisplay progressCount={progressCount} completedCount={completedCount} todolist={todolist} />
+      <StatusDisplay totalCount={totalCount} progressCount={progressCount} completedCount={completedCount} todolist={todolist} />
       <Filter isActive={isActive} setActiveHandler={setActiveHandler} />
       <Container>
         <TodoForm text={text} setText={setText} addData={addData} />

@@ -1,12 +1,12 @@
 import React from 'react'
 import { Container, Card, Row, Col } from 'react-bootstrap'
-const StatusDisplay = ({ todolist, completedCount, progressCount }) => {
+const StatusDisplay = ({ completedCount, progressCount, totalCount }) => {
   return (
     <Container style={{ marginTop: '-2rem' }}>
       <Card className=' border-0 rounded shadow-sm py-4'>
         <Row>
           <Col md='4' className='text-center'>
-            <h4 className='font-weight-bold text-dark'>{todolist.length}</h4>
+            <h4 className='font-weight-bold text-dark'>{totalCount}</h4>
             <div className='text-secondary' style={{ fontSize: '14px' }}>
               Total Items
             </div>
