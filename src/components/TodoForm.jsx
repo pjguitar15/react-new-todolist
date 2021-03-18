@@ -5,7 +5,7 @@ const TodoForm = ({ text, setText, addData }) => {
     <Form style={{ marginTop: '3rem' }} onSubmit={addData}>
       <Form.Group>
         <Form.Control
-          className='col-lg-5 main-form'
+          className='col-lg-5'
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder='Enter todo item'

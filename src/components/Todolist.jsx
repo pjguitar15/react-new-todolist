@@ -11,7 +11,7 @@ const Todolist = ({ todolist, editData, deleteData }) => {
       {todolist.map((item, index) => (
         <Card
           key={index}
-          className='card-container col-md-5 mt-3 mr-5 bg-white rounded list-unstyled shadow-sm py-2'
+          className='card-container col-md-5 mt-3 mr-md-5 bg-white rounded list-unstyled shadow-sm py-2'
           style={
             item.completed
               ? { borderLeft: '6px solid' + bootstrapColors.success }

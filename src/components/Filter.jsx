@@ -7,7 +7,7 @@ const Filter = ({ isActive, setActiveHandler }) => {
       <Button
         name='all'
         onClick={setActiveHandler}
-        className='mx-1'
+        className='mx-md-1'
         size='sm'
         variant={`${isActive.all ? 'secondary' : 'outline-secondary'}`}
       >
@@ -25,7 +25,7 @@ const Filter = ({ isActive, setActiveHandler }) => {
       <Button
         name='progress'
         onClick={setActiveHandler}
-        className='mx-1'
+        className='mx-md-1'
         size='sm'
         variant={`${isActive.progress ? 'secondary' : 'outline-secondary'}`}
       >

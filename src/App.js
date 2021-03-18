@@ -79,8 +79,13 @@ const App = () => {
   const addData = (e) => {
     e.preventDefault()
     const id = uuidv4()
-    ref.doc(id).set({ id, text, num: todolist.length, completed: false }).catch(err => console.log(err))
-    setText('')
+    if (text === '') {
+      alert('Input field cannot be empty.')
+    } else {
+      ref.doc(id).set({ id, text, num: todolist.length, completed: false }).catch(err => console.log(err))
+      setText('')
+    }
+
   }
 
   const editData = (item) => {
